@@ -9,6 +9,7 @@ class TeamSchema extends Schema {
       table.increments()
       table.string('name').notNullable()
       table.integer('user_id').unsigned().notNullable().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE')
+      table.string('slug').notNullable().unique()
       table.timestamps()
     })
   }
@@ -19,3 +20,4 @@ class TeamSchema extends Schema {
 }
 
 module.exports = TeamSchema
+

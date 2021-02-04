@@ -17,7 +17,10 @@ class TeamController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index ({ auth }) {
+    const teams = await auth.user.teams().fetch()
+
+    return teams
   }
 
   /**
@@ -29,8 +32,6 @@ class TeamController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async create ({ request, response, view }) {
-  }
 
   /**
    * Create/save a new team.
@@ -64,8 +65,7 @@ class TeamController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async edit ({ params, request, response, view }) {
-  }
+
 
   /**
    * Update team details.
